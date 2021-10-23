@@ -86,25 +86,23 @@ public class Sistema {
 
     public static void imprimeListaInadimplentes(Clientes[] clientes, int maximo) {
         Clientes[] vetorInadimplencia = new Clientes[maximo];
-        for (int i = 0; i < vetorInadimplencia.length; i++) {
-            vetorInadimplencia[i] = new Clientes();
-        }
         int contador = 0;
-        double atual;
+        Clientes atual = new Clientes();
+        for (int j = 1; j < maximo; j++) {
+            for (int i = 0; i < maximo - 1; i++) {
+                if (clientes[i].getQuantDevida() < clientes[i+1].getQuantDevida()) {
+                    atual = clientes[i];
+                    clientes[i] = clientes[i+1];
+                    clientes[i+1] = atual;
+                }
+            }
+        }
         for (int i = 0; i < maximo; i++) {
             if (clientes[i].getDevedor()) {
+                vetorInadimplencia[contador] = new Clientes();
                 vetorInadimplencia[contador] = clientes[i];
                 contador++;
             }
-        }
-        for (int j = 1; j < vetorInadimplencia.length; j++) {
-            atual = vetorInadimplencia[j].getQuantDevida();
-            int k = j - 1;
-            while (k > 0 && vetorInadimplencia[k].getQuantDevida() < atual) {
-                vetorInadimplencia[k+1] = vetorInadimplencia[k];
-                k = k - 1;
-            }
-            vetorInadimplencia[k+1].setQuantDevida(atual);
         }
         System.out.println("Lista dos devedores:");
         for (int i = 0; i < contador; i++) {
@@ -159,9 +157,20 @@ public class Sistema {
         Scanner sc = new Scanner(System.in);
 
         int selecao;
-        int contador = 0;
+        int contador = 11;
         System.out.println("Olá, querido(a) funcionário(a)!");
         System.out.println("Bem vindo(a) ao sistema da Academia Corpo Mole!");
+        cliente[0]= new Clientes(160, "Keeven", false, 0.0, "Natação");
+        cliente[1]= new Clientes(10, "Paulo", true, 50.0, "Luta");
+        cliente[2]= new Clientes(35, "Rodrigo", false, 0.0, "Dança");
+        cliente[3]= new Clientes(164, "Marcela", true, 100.0, "Crossfit");
+        cliente[4]= new Clientes(234, "Patrícia", false, 0.0, "Ginástica");
+        cliente[5]= new Clientes(456, "Roberto", false, 0.0, "Musculação");
+        cliente[6]= new Clientes(451, "Gabriel", false, 0.0, "Musculação");
+        cliente[7]= new Clientes(142, "Pedro", true, 20.0, "Natação");
+        cliente[8]= new Clientes(351, "Lara", false, 0.0, "Dança");
+        cliente[9]= new Clientes(78, "Aline", true, 80.0, "Ginástica");
+        cliente[10]= new Clientes(96, "Thiago", false, 0.0, "Natação");
         do {
             imprimeMenu();
             selecao = sc.nextInt();
@@ -195,7 +204,7 @@ public class Sistema {
             if (selecao == 6) {
                 System.out.println("Digite o número da matrícula a ser modificada:");
                 int numero = sc.nextInt();
-                modificaCliente(numero, cliente, contador-1);
+                modificaCliente(numero, cliente, contador);
             }
         } while (true);
     }
