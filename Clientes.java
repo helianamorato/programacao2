@@ -14,6 +14,14 @@ public class Clientes {
         this.atividade = atividade;
     }
 
+    public Clientes(int matricula, String nome, boolean devedor, double quantDevida, String atividade) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.devedor = devedor;
+        this.quantDevida = quantDevida;
+        this.atividade = atividade;
+    }
+
     public int getMatricula() {
         return matricula;
     }
