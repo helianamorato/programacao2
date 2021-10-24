@@ -171,7 +171,7 @@ public class Sistema {
         cliente[1] = new Clientes(10, "Paulo", true, 50.0, "Luta");
         cliente[2] = new Clientes(35, "Rodrigo", false, 0.0, "Dança");
         cliente[3] = new Clientes(164, "Marcela", true, 100.0, "Crossfit");
-        cliente[4] = new Clientes(234, "PatrÃ­cia", false, 0.0, "Ginástica");
+        cliente[4] = new Clientes(234, "Patrícia", false, 0.0, "Ginástica");
         cliente[5] = new Clientes(456, "Roberto", false, 0.0, "Musculação");
         cliente[6] = new Clientes(451, "Gabriel", false, 0.0, "Musculação");
         cliente[7] = new Clientes(142, "Pedro", true, 20.0, "Natação");
