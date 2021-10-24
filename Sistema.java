@@ -125,44 +125,38 @@ public class Sistema {
     public static void modificaCliente(int numeroMatricula, Clientes[] clientes, int maximo) {
         Scanner sc = new Scanner(System.in);
         int inicio = 0;
-        int fim = maximo;
-        int meio;
-        int achado = 0;
-        while (inicio <= fim) {
-            meio = (inicio + fim) / 2;
-            if (clientes[meio].getMatricula() == numeroMatricula) {
-                achado = meio;
+        while (inicio <= maximo) {
+            if (clientes[inicio].getMatricula() == numeroMatricula) {
+                System.out.print("Digite o nome do cliente: ");
+                clientes[inicio].setNome(sc.next());
+                System.out.println("Considere as seguites opções: ");
+                System.out.println("- Musculação;");
+                System.out.println("- Ginástica;");
+                System.out.println("- Crossfit;");
+                System.out.println("- Natação;");
+                System.out.println("- Dança;");
+                System.out.println("- Luta.");
+                System.out.println(" ");
+                System.out.print("Digite a atividade do cliente dentre as opções: ");
+                clientes[inicio].setAtividade(sc.next());
+                System.out.print("Defina o status de pagamento: ");
+                System.out.print("Devedor? Digite (S) para Sim ou (N) para Não: ");
+                char devendo = sc.next().toUpperCase().charAt(0);
+                System.out.println(devendo);
+                if (devendo == 'S') {
+                    clientes[inicio].setDevedor(true);
+                    System.out.print("Digite a quantidade devida: ");
+                    clientes[inicio].setQuantDevida(sc.nextDouble());
+                } else if (devendo == 'N'){
+                    clientes[inicio].setDevedor(false);
+                    clientes[inicio].setQuantDevida(0.0);
+                }
                 break;
-            } else if (clientes[meio].getMatricula() < numeroMatricula) {
-                inicio = meio + 1;
             } else {
-                fim = meio - 1;
+                inicio +=1;
             }
         }
-        System.out.print("Digite o nome do cliente: ");
-        clientes[achado].setNome(sc.next());
-        System.out.println("Considere as seguites opções: ");
-        System.out.println("- Musculação;");
-        System.out.println("- Ginástica;");
-        System.out.println("- Crossfit;");
-        System.out.println("- Natação;");
-        System.out.println("- Dança;");
-        System.out.println("- Luta.");
-        System.out.println(" ");
-        System.out.print("Digite a atividade do cliente dentre as opções: ");
-        clientes[achado].setAtividade(sc.next());
-        System.out.print("Defina o status de pagamento: ");
-        System.out.print("Devedor? Digite (S) para Sim ou (N) para Não: ");
-        char devendo = sc.next().toUpperCase().charAt(0);
-        System.out.println(devendo);
-        if (devendo == 'S') {
-            clientes[achado].setDevedor(true);
-            System.out.print("Digite a quantidade devida: ");
-            clientes[achado].setQuantDevida(sc.nextDouble());
-        } else if (devendo == 'N'){
-            clientes[achado].setDevedor(false);
-            clientes[achado].setQuantDevida(0.0);
-        }
+
     }
 
     public static void main(String[] args) {
