@@ -45,6 +45,7 @@ public class Sistema {
     }
 
     public static void imprimeListaCliente(Clientes[] clientes, int contador) {
+        System.out.println(" ");
         System.out.println("Lista de todos os clientes matriculados:");
         System.out.println(" ");
         for (int i = 0; i <= contador; i++) {
@@ -112,6 +113,7 @@ public class Sistema {
                 contador++;
             }
         }
+        System.out.println(" ");
         System.out.println("Lista dos devedores:");
         for (int i = 0; i < contador; i++) {
             System.out.print(i+1+" ");
@@ -172,7 +174,7 @@ public class Sistema {
         int contaSessoes = 0;
         System.out.println("Olá, querido(a) funcionário(a)!");
         System.out.println("Bem vindo(a) ao sistema da Academia Corpo Mole!");
-        cliente[0] = new Clientes(160, "Keeven", false, 0.0, "Natação");
+        cliente[0] = new Clientes(160, "Carlos", false, 0.0, "Natação");
         cliente[1] = new Clientes(10, "Paulo", true, 50.0, "Luta");
         cliente[2] = new Clientes(35, "Rodrigo", false, 0.0, "Dança");
         cliente[3] = new Clientes(164, "Marcela", true, 100.0, "Crossfit");
@@ -204,7 +206,7 @@ public class Sistema {
                 }
                 if (contador >= 15) {
                     System.out.println("Capacidade máxima atingida. Não é possível adicionar mais alunos!");
-                    System.out.println("Aguarda a saída de algum aluno para nova matrícula");
+                    System.out.println("Aguarde a saída de algum aluno para nova matrícula");
                 }
             }
             if (selecao == 2) {
