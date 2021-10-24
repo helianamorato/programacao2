@@ -64,13 +64,17 @@ public class Sistema {
             if (clientes[inicio].getMatricula() == matricula) {
                 System.out.println("Nome: " + clientes[inicio].getNome());
                 System.out.println("Atividade: " + clientes[inicio].getAtividade());
-                System.out.println("InadimplÃªncia: " + clientes[inicio].getDevedor());
+                System.out.println("Inadimplência: " + clientes[inicio].getDevedor());
                 System.out.println("Quantia devida: " + clientes[inicio].getQuantDevida());
                 System.out.println("--------------------------------------");
                 break;
             } else {
                 inicio += 1;
             }
+        }
+        if (inicio == fim) {
+            System.out.println(" ");
+            System.out.println("Matrícula não encontrada!");
         }
     }
 
@@ -165,6 +169,7 @@ public class Sistema {
 
         int selecao;
         int contador = 11;
+        int contaSessoes = 0;
         System.out.println("Olá, querido(a) funcionário(a)!");
         System.out.println("Bem vindo(a) ao sistema da Academia Corpo Mole!");
         cliente[0] = new Clientes(160, "Keeven", false, 0.0, "Natação");
@@ -178,7 +183,12 @@ public class Sistema {
         cliente[8] = new Clientes(351, "Lara", false, 0.0, "Dança");
         cliente[9] = new Clientes(78, "Aline", true, 80.0, "Ginástica");
         cliente[10] = new Clientes(96, "Thiago", false, 0.0, "Natação");
+        System.out.print("Digite seu nome (login): ");
+        String nomeFuncionario = sc.nextLine();
+        System.out.print("Digite sua senha: ");
+        int senha = sc.nextInt();
         do {
+            contaSessoes++;
             imprimeMenu();
             selecao = sc.nextInt();
             while (selecao < 1 || selecao > 6) {
@@ -187,11 +197,14 @@ public class Sistema {
                 selecao = sc.nextInt();
             }
             if (selecao == 1) {
-                cliente[contador] = new Clientes();
-                adicionarCliente(cliente[contador]);
-                contador++;
+                if (contador < 15) {
+                    cliente[contador] = new Clientes();
+                    adicionarCliente(cliente[contador]);
+                    contador++;
+                }
                 if (contador >= 15) {
                     System.out.println("Capacidade máxima atingida. Não é possível adicionar mais alunos!");
+                    System.out.println("Aguarda a saída de algum aluno para nova matrícula");
                 }
             }
             if (selecao == 2) {
@@ -211,9 +224,12 @@ public class Sistema {
             if (selecao == 6) {
                 System.out.print("Digite o número da matrícula a ser modificada: ");
                 int numero = sc.nextInt();
-                modificaCliente(numero, cliente, contador);
+                modificaCliente(numero, cliente, contador-1);
             }
-        } while (true);
+        } while (contaSessoes <= 50);
+        System.out.println(" ");
+        System.out.println("Sessão expirada!");
+        System.out.println("Entre novamente com seu login, "+ nomeFuncionario);
+        System.out.print("E lembre-se de beber água!");
     }
 }
-
