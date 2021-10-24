@@ -1,5 +1,5 @@
 # programacao2
-### Projeto da cadeira de Programação 2
+### Projeto de Programação 2
 #### 2º período do curso de Ciência da Computação
 
 Projeto desenvolvido em dupla para a cadeira de Programação 2.
