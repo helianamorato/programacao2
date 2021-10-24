@@ -38,12 +38,9 @@ public class Sistema {
         char devendo = sc.next().toUpperCase().charAt(0);
         System.out.println(devendo);
         if (devendo == 'S') {
-        	cliente.setDevedor(true);
+            cliente.setDevedor(true);
             System.out.print("Digite a quantidade devida: ");
             cliente.setQuantDevida(sc.nextDouble());
-        } else if (devendo == 'N'){
-        	cliente.setDevedor(false);
-        	cliente.setQuantDevida(0.0);
         }
     }
 
