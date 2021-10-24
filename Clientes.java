@@ -7,11 +7,7 @@ public class Clientes {
     private String atividade;
 
     public Clientes() {
-        this.matricula = matricula;
-        this.nome = nome;
-        this.devedor = devedor;
-        this.quantDevida = quantDevida;
-        this.atividade = atividade;
+
     }
 
     public Clientes(int matricula, String nome, boolean devedor, double quantDevida, String atividade) {
