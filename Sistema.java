@@ -179,9 +179,9 @@ public class Sistema {
         cliente[8] = new Clientes(351, "Lara", false, 0.0, "Dança");
         cliente[9] = new Clientes(78, "Aline", true, 80.0, "Ginástica");
         cliente[10] = new Clientes(96, "Thiago", false, 0.0, "Natação");
-        System.out.print("Digite seu nome (login): ");
+        System.out.print("Digite seu login (nome): ");
         String nomeFuncionario = sc.nextLine();
-        System.out.print("Digite sua senha: ");
+        System.out.print("Digite sua senha (apenas números): ");
         int senha = sc.nextInt();
         do {
             contaSessoes++;
