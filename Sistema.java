@@ -18,12 +18,13 @@ public class Sistema {
 
     public static void adicionarCliente(Clientes cliente){
         Scanner sc = new Scanner(System.in);
+        System.out.println(" ");
         System.out.print("Digite o número da matrícula: ");
         cliente.setMatricula(sc.nextInt());
         System.out.print("Digite o nome do cliente: ");
         cliente.setNome(sc.next());
         System.out.println(" ");
-        System.out.println("Considere as seguites opções: ");
+        System.out.println("Considere as seguintes opções: ");
         System.out.println("- Musculação;");
         System.out.println("- Ginástica;");
         System.out.println("- Crossfit;");
@@ -89,6 +90,7 @@ public class Sistema {
                 contaPagador++;
             }
         }
+        System.out.println(" ");
         System.out.println("Quantidade de clientes devendo: "+contaDevedor);
         System.out.println("Quantidade de clientes em dia: "+contaPagador);
     }
@@ -129,7 +131,7 @@ public class Sistema {
             if (clientes[inicio].getMatricula() == numeroMatricula) {
                 System.out.print("Digite o nome do cliente: ");
                 clientes[inicio].setNome(sc.next());
-                System.out.println("Considere as seguites opções: ");
+                System.out.println("Considere as seguintes opções: ");
                 System.out.println("- Musculação;");
                 System.out.println("- Ginástica;");
                 System.out.println("- Crossfit;");
@@ -188,6 +190,7 @@ public class Sistema {
             imprimeMenu();
             selecao = sc.nextInt();
             while (selecao < 1 || selecao > 6) {
+                System.out.println(" ");
                 System.out.println("Opção inválida. Digite novamente!");
                 imprimeMenu();
                 selecao = sc.nextInt();
@@ -199,14 +202,15 @@ public class Sistema {
                     contador++;
                 }
                 if (contador >= 15) {
+                    System.out.println(" ");
                     System.out.println("Capacidade máxima atingida. Não é possível adicionar mais alunos!");
-                    System.out.println("Aguarde a saída de algum aluno para nova matrícula");
                 }
             }
             if (selecao == 2) {
                 imprimeListaCliente(cliente, contador-1);
             }
             if (selecao == 3) {
+                System.out.println(" ");
                 System.out.print("Digite o número da matrícula: ");
                 int matricula = sc.nextInt();
                 imprimeCliente(matricula, cliente, contador-1);
@@ -218,11 +222,12 @@ public class Sistema {
                 imprimeListaInadimplentes(cliente, contador);
             }
             if (selecao == 6) {
+                System.out.println(" ");
                 System.out.print("Digite o número da matrícula a ser modificada: ");
                 int numero = sc.nextInt();
                 modificaCliente(numero, cliente, contador-1);
             }
-        } while (contaSessoes <= 50);
+        } while (contaSessoes <= 15);
         System.out.println(" ");
         System.out.println("Sessão expirada!");
         System.out.println("Entre novamente com seu login, "+ nomeFuncionario);
