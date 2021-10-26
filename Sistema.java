@@ -98,7 +98,7 @@ public class Sistema {
     public static void imprimeListaInadimplentes(Clientes[] clientes, int maximo) {
         Clientes[] vetorInadimplencia = new Clientes[maximo];
         int contador = 0;
-        Clientes atual = new Clientes();
+        Clientes atual;
         for (int j = 1; j < maximo; j++) {
             for (int i = 0; i < maximo - 1; i++) {
                 if (clientes[i].getQuantDevida() < clientes[i+1].getQuantDevida()) {
@@ -151,7 +151,6 @@ public class Sistema {
                     clientes[inicio].setQuantDevida(sc.nextDouble());
                 } else if (devendo == 'N'){
                     clientes[inicio].setDevedor(false);
-                    clientes[inicio].setQuantDevida(0.0);
                 }
                 break;
             } else {
@@ -183,8 +182,8 @@ public class Sistema {
         cliente[10] = new Clientes(96, "Thiago", false, 0.0, "Natação");
         System.out.print("Digite seu login (nome): ");
         String nomeFuncionario = sc.nextLine();
-        System.out.print("Digite sua senha (apenas números): ");
-        int senha = sc.nextInt();
+        System.out.print("Digite sua senha: ");
+        String senha = sc.nextLine();
         do {
             contaSessoes++;
             imprimeMenu();
@@ -227,7 +226,7 @@ public class Sistema {
                 int numero = sc.nextInt();
                 modificaCliente(numero, cliente, contador-1);
             }
-        } while (contaSessoes <= 15);
+        } while (contaSessoes <= 50);
         System.out.println(" ");
         System.out.println("Sessão expirada!");
         System.out.println("Entre novamente com seu login, "+ nomeFuncionario);
